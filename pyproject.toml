@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "fluent-python-2e"
+version = "0.1.0"
+description = ""
+authors = ["liyan <twotwo.li@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "console" },
+    # { include = "slides" },
+]
+homepage = "http://wiki.li3huo.com/book/Fluent_Python"
+# https://python-poetry.org/docs/pyproject/#repository
+repository = "https://github.com/twotwo/fluent-python-2e"
+keywords = ["fluent python", "poetry"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+toml = "^0.10.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+black = "^23.9"
+pre-commit = "^3.4"
+isort = "^5.12"
+autoflake = "^2.2"
+flake8 = "^6.1.0"
+mkdocs-material = "^9.4.0"
+mypy = "^1.5.1"
+
+
+[[tool.poetry.source]]
+name = "pypi-aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple"
+priority = "primary"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# https://python-poetry.org/docs/pyproject/#scripts
+[tool.poetry.scripts]
+cli = 'console:run'
+

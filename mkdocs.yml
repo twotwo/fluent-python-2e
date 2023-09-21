@@ -1,0 +1,12 @@
+site_name: fluent-python-2e
+nav:
+  - Home: index.md
+  - About: about.md
+  - Usage: usage.md
+  - 结构: structure.md
+theme:
+  name: "material"
+  custom_dir: overrides
+
+plugins:
+- search
