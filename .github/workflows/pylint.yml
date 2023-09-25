@@ -1,0 +1,39 @@
+# This workflow will install Python dependencies, run tests and lint
+# For more information see: http://wiki.li3huo.com/GitHub_Actions
+
+name: Python application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry==1.6.1
+          if [ -f pyproject.toml ]; then poetry install; fi
+      - name: Lint and Test with pre-commit
+        run: |
+          poetry run pre-commit run -a
+      - name: Create site with mkdocs
+        run: |
+          poetry run mkdocs build
