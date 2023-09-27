@@ -36,7 +36,7 @@ Add Dev Dependencies
 
 ```bash
 # 添加开发依赖库
-$ poetry add --group=dev pytest="^7.4" black="^23.9" pre-commit="^3.4" isort="^5.12" autoflake="^2.2" flake8="^6.1" mypy="^1.5"
+$ poetry add --group=dev pytest="^7.4" black="^23.9" pre-commit="^3.4" isort="^5.12" autoflake="^2.2" flake8-pyproject="^1.2" mypy="^1.5"
 $ poetry show --tree
 ```
 

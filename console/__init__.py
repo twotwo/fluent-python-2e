@@ -1,5 +1,6 @@
 import toml  # type:ignore
 
+
 tool_poetry = toml.load("pyproject.toml")["tool"]["poetry"]
 
 

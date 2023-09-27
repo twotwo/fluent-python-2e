@@ -3,7 +3,8 @@ nav:
   - Home: index.md
   - About: about.md
   - Usage: usage.md
-  - 结构: structure.md
+  - 读书笔记: chapters.md
+  - 项目结构: structure.md
 theme:
   name: "material"
   custom_dir: overrides

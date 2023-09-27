@@ -11,8 +11,9 @@
 
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
+    mkdocs.yml       # The configuration file.
     docs/
-        about.md  # 项目介绍
-        index.md  # The documentation homepage.
-        usage.md  # 使用说明
+        about.md     # 项目介绍
+        chapters.md  # 读书笔记
+        index.md     # The documentation homepage.
+        usage.md     # 使用说明

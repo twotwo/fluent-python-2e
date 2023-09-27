@@ -7,12 +7,13 @@ license = "MIT"
 readme = "README.md"
 packages = [
     { include = "console" },
-    # { include = "slides" },
+    { include = "chapters" },
 ]
 homepage = "http://wiki.li3huo.com/book/Fluent_Python"
 # https://python-poetry.org/docs/pyproject/#repository
 repository = "https://github.com/twotwo/fluent-python-2e"
 keywords = ["fluent python", "poetry"]
+
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -25,9 +26,10 @@ black = "^23.9"
 pre-commit = "^3.4"
 isort = "^5.12"
 autoflake = "^2.2"
-flake8 = "^6.1.0"
+flake8-pyproject = "^1.2.3"
 mkdocs-material = "^9.4.0"
 mypy = "^1.5.1"
+nbval = "^0.10.0"
 
 
 [[tool.poetry.source]]
@@ -40,11 +42,52 @@ priority = "primary"
 name = "PyPI"
 priority = "explicit"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
 
 # https://python-poetry.org/docs/pyproject/#scripts
 [tool.poetry.scripts]
 cli = 'console:run'
 
+[tool.black]
+line-length = 119
+target-version = ["py37"]
+
+[tool.isort]
+ensure_newline_before_comments = true
+force_grid_wrap = "0"
+include_trailing_comma = true
+line_length = "119"
+lines_after_imports = "2"
+multi_line_output = "3"
+force_to_top = "setuppath"
+
+[tool.flake8]
+ignore = ["E203", "E231", "E501", "W503", "W504", "E402", "E741"]
+max-line-length = 119
+
+[tool.mypy]
+python_version = "^3.9"
+ignore_missing_imports = true
+# warn_return_any = true
+warn_unused_configs = true
+exclude = ["example/main.py$", "aortic_cta_engine/submodule", "scripts/*"]
+
+# mypy per-module options:
+[[tool.mypy.overrides]]
+module = "chapters.*"
+ignore_errors = true
+implicit_reexport = false
+
+[tool.pytest.ini_options]
+# Show extra test summary info: (s)kipped
+addopts = "-vs --doctest-modules" 
+testpaths = ["tests", "chapters"]
+filterwarnings = [
+	"error",
+	"ignore::UserWarning",
+    "ignore::DeprecationWarning",
+]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
