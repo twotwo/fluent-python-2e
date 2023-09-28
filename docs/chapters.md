@@ -1,5 +1,7 @@
 # Table of Contents
 
+![Chapters](chapters/chapters.png)
+
 Part / Chapter #|Title|Directory|1<sup>st</sup> ed. Chapter&nbsp;#
 ---:|---|---|:---:
 **I – Data Structures**|
