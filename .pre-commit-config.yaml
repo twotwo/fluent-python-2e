@@ -1,9 +1,14 @@
+default_language_version:
+  python: python3.11
+default_stages: [commit]
+exclude: (chapters/03-dict-set/py3.10/creator.py, chapters/03-dict-set/support)
+
 repos:
   - repo: local
     hooks:
       - id: autoflake
         name: Remove unused variables and imports
-        entry: bash -c 'autoflake "$@"; git add -u' --
+        entry: bash -c 'autoflake "$@";' --
         language: python
         args:
           [
@@ -16,13 +21,13 @@ repos:
         files: \.py$
       - id: isort
         name: Sorting import statements
-        entry: bash -c 'isort "$@"; git add -u' --
+        entry: bash -c 'isort "$@";' --
         language: python
         args: ["--filter-files"]
         files: \.py$
       - id: black
         name: Black Python code formatting
-        entry: bash -c 'black "$@"; git add -u' --
+        entry: bash -c 'black --target-version py310 "$@";' --
         language: python
         types: [python]
         args: ["--line-length=120"]

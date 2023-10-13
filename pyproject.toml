@@ -65,7 +65,7 @@ ignore = ["E203", "E231", "E501", "W503", "W504", "E402", "E741"]
 max-line-length = 119
 
 [tool.mypy]
-python_version = "^3.9"
+python_version = "3.10"
 ignore_missing_imports = true
 # warn_return_any = true
 warn_unused_configs = true
